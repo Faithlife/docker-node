@@ -5,7 +5,7 @@ ENV NODE_VERSION=v4.4.1 NPM_VERSION=2
 RUN apk add --update git curl make gcc g++ python linux-headers paxctl libgcc libstdc++ binutils-gold && \
   curl -sSL https://nodejs.org/download/release/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz | tar -xz && \
   cd /node-${NODE_VERSION} && \
-  ./configure --prefix=/usr && \
+  ./configure --prefix=/usr --without-snapshot && \
   make && \
   make install && \
   paxctl -cm /usr/bin/node && \
